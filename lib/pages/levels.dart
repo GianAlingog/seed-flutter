@@ -32,7 +32,9 @@ class _LevelSelectState extends State<LevelSelect> {
       elevation: 0.0,
       centerTitle: true,
       leading: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.pop(context);
+        },
         child: Container(
           margin: const EdgeInsets.all(10),
           alignment: Alignment.center,
@@ -46,32 +48,41 @@ class _LevelSelectState extends State<LevelSelect> {
           ),
         ),
       ),
-      title: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-        ListView.separated(
-          itemCount: stats.length,
-          separatorBuilder: (context, index) => const SizedBox(width: 10),
-          itemBuilder: (context, index) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SvgPicture.asset(
-                  stats[index].iconPath,
-                  width: 20,
-                ),
-                Text(
-                  stats[index].name,
-                  style: GoogleFonts.leagueSpartan(
-                    textStyle: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff58C1FF),
-                        fontSize: 20),
-                  ),
-                )
-              ],
-            );
-          },
-        ),
-      ]),
+      title: SizedBox(
+        height: 50.0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ListView.separated(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemCount: stats.length,
+              separatorBuilder: (context, index) => const SizedBox(width: 40),
+              itemBuilder: (context, index) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SvgPicture.asset(
+                      stats[index].iconPath,
+                      width: 25,
+                    ),
+                    const SizedBox(width: 5,),
+                    Text(
+                      stats[index].value.toString(),
+                      style: GoogleFonts.leagueSpartan(
+                        textStyle: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff58C1FF),
+                            fontSize: 20),
+                      ),
+                    )
+                  ],
+                );
+              },
+            ),
+        ]),
+      ),
     );
   }
 }

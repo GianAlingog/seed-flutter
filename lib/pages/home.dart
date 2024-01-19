@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:seed/model/category_model.dart';
 import 'package:seed/model/module_model.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seed/pages/levels.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -98,7 +99,12 @@ class _HomePageState extends State<HomePage> {
                   child: ExpansionTile(
                     shape: const Border(),
                     trailing: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LevelSelect()));
+                      },
                       child: SvgPicture.asset(
                         'assets/icons/button.svg',
                         width: 30,
@@ -178,9 +184,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   height: 30,
                                   decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromARGB(255, 244, 244, 244)
-                                              .withOpacity(0.3),
+                                      color: const Color.fromARGB(
+                                              255, 244, 244, 244)
+                                          .withOpacity(0.3),
                                       borderRadius: BorderRadius.circular(16),
                                       boxShadow: [
                                         BoxShadow(
@@ -191,7 +197,8 @@ class _HomePageState extends State<HomePage> {
                                             spreadRadius: 0)
                                       ]),
                                   child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
