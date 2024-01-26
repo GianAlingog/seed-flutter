@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seed/model/lesson_model.dart';
 import 'package:seed/model/level_model.dart';
-import 'package:seed/model/module_model.dart';
 import 'package:seed/model/stats_model.dart';
-import 'package:seed/model/submodule_model.dart';
-import 'package:seed/pages/lesson.dart';
 
-class LevelSelect extends StatefulWidget { // Refactor to LevelSelectPage
-  ModuleModel? module;
-  SubmoduleModel? submodule;
-
-  LevelSelect({super.key, required this.module});
-  LevelSelect.submodule({super.key, required this.submodule});
+class LessonPage extends StatefulWidget {
+  LevelModel level;
+  LessonPage({super.key, required this.level});
 
   @override
-  State<LevelSelect> createState() => _LevelSelectState();
+  State<LessonPage> createState() => _LessonPageState();
 }
 
-class _LevelSelectState extends State<LevelSelect> {
+class _LessonPageState extends State<LessonPage> {
   List<StatsModel> stats = [];
-  List<LevelModel>? levels; // Refactor with "late"
+  late List<LessonModel> lessons;
+  late int index;
 
   void _init() {
     stats = StatsModel.getStats();
-    levels = widget.module?.levels ?? widget.submodule?.levels;
+    lessons = widget.level.lessons;
+    index = 0;
   }
 
   @override
@@ -39,7 +36,20 @@ class _LevelSelectState extends State<LevelSelect> {
             height: 20,
           ),
           Expanded(
-            child: _levelSection(),
+            child: Stack(children: [
+              _lessonSection(),
+              GestureDetector(
+                onTap: () {
+                  if (index < lessons.length - 1) {
+                    setState(() {
+                      index += 1;
+                    });
+                  } else {
+                    Navigator.pop(context);
+                  }
+                },
+              )
+            ]),
           ),
           const SizedBox(
             height: 20,
@@ -49,14 +59,14 @@ class _LevelSelectState extends State<LevelSelect> {
     );
   }
 
-  Column _levelSection() {
+  Column _lessonSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Text(
-            'Levels',
+            lessons[index].name,
             style: GoogleFonts.leagueSpartan(
               textStyle: const TextStyle(
                   color: Color(0xff85D87C),
@@ -69,58 +79,18 @@ class _LevelSelectState extends State<LevelSelect> {
           height: 10,
         ),
         Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemCount: levels!.length,
-            separatorBuilder: (context, index) => const SizedBox(
-              height: 40,
+            child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Text(
+            lessons[index].content,
+            style: GoogleFonts.libreFranklin(
+              textStyle: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w300),
             ),
-            padding: const EdgeInsets.only(
-              left: 20,
-              right: 20,
-            ),
-            itemBuilder: ((context, index) {
-              return Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LessonPage(level: levels![index])));
-                    },
-                    child: Container(
-                      height: 100,
-                      width: 100,
-                      padding: const EdgeInsets.only(
-                        top: 10.0,
-                        bottom: 10.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.blueAccent.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(50)),
-                      child: SvgPicture.asset(
-                        levels![index].iconPath,
-                        height: 40,
-                        width: 40,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 5,),
-                  Text(
-                    levels![index].name,
-                    style: GoogleFonts.leagueSpartan(
-                      textStyle: const TextStyle(
-                          color: Color(0xff85D87C),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  )
-                ],
-              );
-            }),
           ),
-        ),
+        )),
       ],
     );
   }

@@ -1,9 +1,13 @@
-class LevelModel {
-  final String name;
-  final String iconPath;
+import 'package:seed/model/lesson_model.dart';
 
-  const LevelModel({
+class LevelModel {
+  String name;
+  String iconPath;
+  List<LessonModel> lessons;
+
+  LevelModel({
     required this.name,
     required this.iconPath,
+    required this.lessons,
   });
 }
