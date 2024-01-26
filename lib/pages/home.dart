@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:seed/model/category_model.dart';
 import 'package:seed/model/module_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seed/pages/levels.dart';
@@ -13,31 +12,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // List<CategoryModel> categories = [];
   List<ModuleModel> modules = [];
 
-  void _getInitialInfo() {
-    // categories = CategoryModel.getCategories();
+  void _init() {
     modules = ModuleModel.getModules();
   }
 
-  // @override
-  // void initState() {
-
-  // }
-
   @override
   Widget build(BuildContext context) {
-    _getInitialInfo();
+    _init();
     return Scaffold(
       appBar: appBar(),
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // _searchField(),
-          // const SizedBox(height: 20,),
-          // _categoriesSection()
-          const SizedBox(height: 20),
+          const SizedBox(
+            height: 20,
+          ),
           Expanded(
             child: _modulesSection(),
           ),
@@ -103,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LevelSelect()));
+                                builder: (context) => LevelSelect(module: modules[index])));
                       },
                       child: SvgPicture.asset(
                         'assets/icons/button.svg',
@@ -178,40 +169,48 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Expanded(
                                 flex: 7,
-                                child: Container(
-                                  padding: const EdgeInsets.only(
-                                    left: 15.0,
-                                  ),
-                                  height: 30,
-                                  decoration: BoxDecoration(
-                                      color: const Color.fromARGB(
-                                              255, 244, 244, 244)
-                                          .withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(16),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: const Color(0xff1D1617)
-                                                .withOpacity(0.07),
-                                            offset: const Offset(0, 10),
-                                            blurRadius: 40,
-                                            spreadRadius: 0)
-                                      ]),
-                                  child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          modules[index].submodules[subIndex],
-                                          style: GoogleFonts.libreFranklin(
-                                            textStyle: const TextStyle(
-                                                fontWeight: FontWeight.w400,
-                                                color: Color(0xff58C1FF),
-                                                fontSize: 14),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LevelSelect.submodule(submodule: modules[index].submodules[subIndex])));
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.only(
+                                      left: 15.0,
+                                    ),
+                                    height: 30,
+                                    decoration: BoxDecoration(
+                                        color: const Color.fromARGB(
+                                                255, 244, 244, 244)
+                                            .withOpacity(0.3),
+                                        borderRadius: BorderRadius.circular(16),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: const Color(0xff1D1617)
+                                                  .withOpacity(0.07),
+                                              offset: const Offset(0, 10),
+                                              blurRadius: 40,
+                                              spreadRadius: 0)
+                                        ]),
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            modules[index].submodules[subIndex].name,
+                                            style: GoogleFonts.libreFranklin(
+                                              textStyle: const TextStyle(
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Color(0xff58C1FF),
+                                                  fontSize: 14),
+                                            ),
                                           ),
-                                        ),
-                                      ]),
+                                        ]),
+                                  ),
                                 ),
                               ),
                               const SizedBox(
