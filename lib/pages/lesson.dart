@@ -14,19 +14,17 @@ class LessonPage extends StatefulWidget {
 }
 
 class _LessonPageState extends State<LessonPage> {
-  List<StatsModel> stats = [];
-  late List<LessonModel> lessons;
-  late int index;
+  List<StatsModel> stats = StatsModel.getStats();
+  late List<LessonModel> lessons = widget.level.lessons;
+  int index = 0;
 
-  void _init() {
-    stats = StatsModel.getStats();
-    lessons = widget.level.lessons;
-    index = 0;
+  void _incrementIndex() {
+    index++;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    _init();
     return Scaffold(
       appBar: appBar(),
       backgroundColor: Colors.white,
@@ -41,9 +39,7 @@ class _LessonPageState extends State<LessonPage> {
               GestureDetector(
                 onTap: () {
                   if (index < lessons.length - 1) {
-                    setState(() {
-                      index += 1;
-                    });
+                    _incrementIndex();
                   } else {
                     Navigator.pop(context);
                   }
@@ -97,6 +93,7 @@ class _LessonPageState extends State<LessonPage> {
 
   AppBar appBar() {
     return AppBar(
+      scrolledUnderElevation: 0.0,
       backgroundColor: Colors.white,
       elevation: 0.0,
       centerTitle: true,

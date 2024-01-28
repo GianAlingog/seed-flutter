@@ -19,17 +19,11 @@ class LevelSelect extends StatefulWidget { // Refactor to LevelSelectPage
 }
 
 class _LevelSelectState extends State<LevelSelect> {
-  List<StatsModel> stats = [];
-  List<LevelModel>? levels; // Refactor with "late"
-
-  void _init() {
-    stats = StatsModel.getStats();
-    levels = widget.module?.levels ?? widget.submodule?.levels;
-  }
+  List<StatsModel> stats = StatsModel.getStats();
+  late List<LevelModel>? levels = widget.module?.levels ?? widget.submodule?.levels;
 
   @override
   Widget build(BuildContext context) {
-    _init();
     return Scaffold(
       appBar: appBar(),
       backgroundColor: Colors.white,
@@ -127,6 +121,7 @@ class _LevelSelectState extends State<LevelSelect> {
 
   AppBar appBar() {
     return AppBar(
+      scrolledUnderElevation: 0.0,
       backgroundColor: Colors.white,
       elevation: 0.0,
       centerTitle: true,

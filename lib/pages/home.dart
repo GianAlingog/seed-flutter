@@ -231,6 +231,7 @@ class _HomePageState extends State<HomePage> {
 
   AppBar appBar() {
     return AppBar(
+      scrolledUnderElevation: 0.0,
       title: SvgPicture.asset(
         'assets/icons/seed-logo.svg',
         height: 40,
