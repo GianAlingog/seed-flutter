@@ -48,7 +48,7 @@ class _LevelSelectState extends State<LevelSelect> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 20, right: 20),
           child: Text(
             'Levels',
             style: GoogleFonts.leagueSpartan(

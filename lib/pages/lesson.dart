@@ -60,7 +60,7 @@ class _LessonPageState extends State<LessonPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 20, right: 20),
           child: Text(
             lessons[index].name,
             style: GoogleFonts.leagueSpartan(
@@ -82,7 +82,7 @@ class _LessonPageState extends State<LessonPage> {
             style: GoogleFonts.libreFranklin(
               textStyle: const TextStyle(
                   color: Colors.black,
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.w300),
             ),
           ),
