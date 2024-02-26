@@ -27,13 +27,13 @@ class ModuleModel {
     modules.add(ModuleModel(
       id: 0,
       name: 'Module 5',
-      iconPath: 'assets/icons/module-5.svg',
+      iconPath: 'assets/icons/modules/5/module-5.svg',
       description: 'Intro to Investing',
       isExpanded: false,
       levels: [
         LevelModel(
           name: 'Intro to Investing',
-          iconPath: 'assets/icons/module-5.svg',
+          iconPath: 'assets/icons/modules/5/lesson-1.svg',
           lessons: [
             LessonModel(
               name: "What is Investing?",
@@ -59,7 +59,7 @@ class ModuleModel {
         ),
         LevelModel(
           name: 'Types of Investments',
-          iconPath: 'assets/icons/module-5.svg',
+          iconPath: 'assets/icons/modules/5/lesson-2.svg',
           lessons: [
             LessonModel(
               name: "Types of Investments",
@@ -97,7 +97,7 @@ class ModuleModel {
         ),
         LevelModel(
           name: 'Risk and Return',
-          iconPath: 'assets/icons/module-5.svg',
+          iconPath: 'assets/icons/modules/5/lesson-3.svg',
           lessons: [
             LessonModel(
               name: "Understanding Risk",
@@ -143,7 +143,7 @@ class ModuleModel {
         ),
         LevelModel(
           name: 'Investing Strategies',
-          iconPath: 'assets/icons/module-5.svg',
+          iconPath: 'assets/icons/modules/5/lesson-4.svg',
           lessons: [
             LessonModel(
               name: "Investing Strategies",
@@ -207,7 +207,7 @@ class ModuleModel {
           levels: [
             LevelModel(
               name: 'Refresher: Stock and the Stock Market',
-              iconPath: 'assets/icons/module-5.svg',
+              iconPath: 'assets/icons/modules/5/submodules/1/submodule-5-1.svg',
               lessons: [
                 LessonModel(
                   name: "What is a Stock?",
@@ -233,7 +233,7 @@ class ModuleModel {
             ),
             LevelModel(
               name: 'Stock Markets',
-              iconPath: 'assets/icons/module-5.svg',
+              iconPath: 'assets/icons/modules/5/submodules/1/lesson-1.svg',
               lessons: [
                 LessonModel(
                   name: "The History of Stock Markets",
@@ -275,7 +275,7 @@ class ModuleModel {
             ),
             LevelModel(
               name: 'More on Stock Markets',
-              iconPath: 'assets/icons/module-5.svg',
+              iconPath: 'assets/icons/modules/5/submodules/1/lesson-1.svg',
               lessons: [
                 LessonModel(
                   name: "What is Investing?",
@@ -289,7 +289,7 @@ class ModuleModel {
             ),
             LevelModel(
               name: 'Types of Stocks',
-              iconPath: 'assets/icons/module-5.svg',
+              iconPath: 'assets/icons/modules/5/submodules/1/lesson-3.svg',
               lessons: [
                 LessonModel(
                   name: "What is Investing?",
@@ -303,7 +303,7 @@ class ModuleModel {
             ),
             LevelModel(
               name: 'Long-Term Investing Strategies',
-              iconPath: 'assets/icons/module-5.svg',
+              iconPath: 'assets/icons/modules/5/submodules/1/lesson-4.svg',
               lessons: [
                 LessonModel(
                   name: "What is Investing?",
@@ -317,7 +317,7 @@ class ModuleModel {
             ),
             LevelModel(
               name: 'Short-Term Investing Strategies',
-              iconPath: 'assets/icons/module-5.svg',
+              iconPath: 'assets/icons/modules/5/submodules/1/lesson-5.svg',
               lessons: [
                 LessonModel(
                   name: "What is Investing?",

@@ -14,25 +14,25 @@ class StatsModel {
 
     stats.add(StatsModel(
       name: "Credits",
-      iconPath: "assets/icons/coins-dollar-money-currency-finance-payment-svgrepo-com.svg",
+      iconPath: "assets/icons/stats/credits.svg",
       value: 0
     ));
 
     stats.add(StatsModel(
       name: "Streak",
-      iconPath: "assets/icons/fire-svgrepo-com.svg",
+      iconPath: "assets/icons/stats/streak.svg",
       value: 0
     ));
 
     stats.add(StatsModel(
       name: "Lives",
-      iconPath: "assets/icons/heart-svgrepo-com.svg",
+      iconPath: "assets/icons/stats/lives.svg",
       value: 5
     ));
 
     stats.add(StatsModel(
       name: "XP",
-      iconPath: "assets/icons/up-round-svgrepo-com.svg",
+      iconPath: "assets/icons/stats/xp.svg",
       value: 0
     ));
 

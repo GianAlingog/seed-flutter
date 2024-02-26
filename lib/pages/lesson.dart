@@ -108,7 +108,7 @@ class _LessonPageState extends State<LessonPage> {
               color: const Color(0xffF7F8F8),
               borderRadius: BorderRadius.circular(10)),
           child: SvgPicture.asset(
-            'assets/icons/Arrow - Left 2.svg',
+            'assets/icons/appbar/arrow.svg',
             height: 20,
             width: 20,
           ),

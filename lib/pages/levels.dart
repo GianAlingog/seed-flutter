@@ -136,7 +136,7 @@ class _LevelSelectState extends State<LevelSelect> {
               color: const Color(0xffF7F8F8),
               borderRadius: BorderRadius.circular(10)),
           child: SvgPicture.asset(
-            'assets/icons/Arrow - Left 2.svg',
+            'assets/icons/appbar/arrow.svg',
             height: 20,
             width: 20,
           ),

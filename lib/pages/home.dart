@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Transform.scale(
                                   scaleX: -1,
                                   child: SvgPicture.asset(
-                                    'assets/icons/Arrow - Left 2.svg',
+                                    'assets/icons/appbar/arrow.svg',
                                     height: 15,
                                     width: 15,
                                   ),
@@ -248,7 +248,7 @@ class _HomePageState extends State<HomePage> {
               color: const Color(0xffF7F8F8),
               borderRadius: BorderRadius.circular(10)),
           child: SvgPicture.asset(
-            'assets/icons/Arrow - Left 2.svg',
+            'assets/icons/appbar/arrow.svg',
             height: 20,
             width: 20,
           ),
